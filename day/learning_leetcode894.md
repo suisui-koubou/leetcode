@@ -1,6 +1,6 @@
 # 894. All Possible Full Binary Trees
 
-## DFS 
+## Top-down 动态规划 / DFS 
 
 > **注意**: 这里有一个思维误区，如果只是验证答案的话，不需要深度复制。也就是重复使用子树是可以的。
 
@@ -38,4 +38,15 @@ class Solution:
                     ans.append(root)
         return ans 
 ```
+
+## Bottom-up 动态规划
+
+跟上面差不多。
+
+
+## 灵神写法
+
+这里需要解读，暂时先跳过。
+
+https://leetcode.cn/problems/all-possible-full-binary-trees/solutions/2719981/dong-tai-gui-hua-pythonjavacgojsrust-by-u3waz/?envType=daily-question&envId=2024-04-02
 
