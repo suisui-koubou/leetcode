@@ -7,20 +7,17 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
+MAX_N = 11 
+f = [[] for _ in range(MAX_N)]
+f[1] = [TreeNode(0)]
+for i in range(2, MAX_N):
+    f[i] = [TreeNode(0, left, right)
+            for j in range(1, i) # 枚举左子树的节点数
+            for left in f[j]     # 枚举左子树
+            for right in f[i-j]  # 枚举右子树
+            ]
+
 class Solution:
     def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
-        ans = []
-        if n == 1: 
-            ans.append(TreeNode(0))
-            return ans 
-        if n % 2 == 0: 
-            return ans 
-        for i in range(1, n, 2): # 左子树最少1个节点，最多n-1个节点(除去root)
-            left_subtrees = self.allPossibleFBT(i)
-            right_subtrees = self.allPossibleFBT(n - i - 1)
-            for left in left_subtrees:
-                for right in right_subtrees:
-                    root = TreeNode(0, left, right)
-                    ans.append(root)
-        return ans 
-
+        return f[(n + 1) // 2] if n % 2 else []
