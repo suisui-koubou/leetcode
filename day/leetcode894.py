@@ -13,7 +13,7 @@ f = [[] for _ in range(MAX_N)]
 f[1] = [TreeNode(0)]
 for i in range(2, MAX_N):
     f[i] = [TreeNode(0, left, right)
-            for j in range(1, i) # 枚举左子树的节点数
+            for j in range(1, i) # 枚举左子树的子叶
             for left in f[j]     # 枚举左子树
             for right in f[i-j]  # 枚举右子树
             ]
